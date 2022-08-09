@@ -16,10 +16,10 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    const filteredMonsters = monsters.filter((monster) => {
+    const newFilteredMonsters = monsters.filter((monster) => {
       return monster.name.toLocaleLowerCase().includes(searchField);
     });
-    setFilteredMonsters(filteredMonsters);
+    setFilteredMonsters(newFilteredMonsters);
   }, [monsters, searchField]);
 
   const onSearchChange = (event) => {
@@ -28,11 +28,11 @@ const App = () => {
   };
 
   return (
-    <div className="App">
-      <h1 className="app-title">Monsters Rolodex</h1>
+    <div className='App'>
+      <h1 className='app-title'>Monsters Rolodex</h1>
       <SearchBox
-        className="monsters-search-box"
-        placeholder="search monsters"
+        className='monsters-search-box'
+        placeholder='search monsters'
         onChangeHandler={onSearchChange}
       />
       <CardList monsters={filteredMonsters} />
